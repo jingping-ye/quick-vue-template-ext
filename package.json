@@ -1,0 +1,96 @@
+{
+	"name": "quick-vue-template",
+	"displayName": "quick-vue-template",
+	"description": "快速生成vue模板",
+	"version": "0.0.1",
+	"publisher": "jingping-ye",
+	"engines": {
+		"vscode": "^1.47.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/onlyutkarsh/git-config-user-profiles.git"
+	},
+	"icon": "images/icon.png",
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:quick-vue-template.createComp",
+		"onCommand:quick-vue-template.createMock",
+		"onCommand:quick-vue-template.createApi",
+		"onCommand:quick-vue-template.createRouter",
+		"onCommand:quick-vue-template.createVuex"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "quick-vue-template.createComp",
+				"title": "生成Vue组件"
+			},
+			{
+				"command": "quick-vue-template.createMock",
+				"title": "生成Mock服务模板"
+			},
+			{
+				"command": "quick-vue-template.createApi",
+				"title": "生成API模板"
+			},
+			{
+				"command": "quick-vue-template.createRouter",
+				"title": "生成路由模板"
+			},
+			{
+				"command": "quick-vue-template.createVuex",
+				"title": "生成Vuex模板"
+			}
+		],
+		"keybindings": [],
+		"menus": {
+			"editor/context": [
+				{
+					"when": "editorFocus && resourceLangId == vue ",
+					"command": "quick-vue-template.createComp",
+					"group": "1_modification"
+				},
+				{
+					"when": "editorFocus && resourceLangId == javascript",
+					"command": "quick-vue-template.createMock",
+					"group": "1_modification"
+				},
+				{
+					"when": "editorFocus && resourceLangId == javascript",
+					"command": "quick-vue-template.createApi",
+					"group": "1_modification"
+				},
+				{
+					"when": "editorFocus && resourceLangId == javascript",
+					"command": "quick-vue-template.createRouter",
+					"group": "1_modification"
+				},
+				{
+					"when": "editorFocus && resourceLangId == javascript",
+					"command": "quick-vue-template.createVuex",
+					"group": "1_modification"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"lint": "eslint .",
+		"pretest": "npm run lint",
+		"test": "node ./test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.47.0",
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^7.0.2",
+		"@types/node": "^13.11.0",
+		"eslint": "^6.8.0",
+		"glob": "^7.1.6",
+		"mocha": "^7.1.2",
+		"typescript": "^3.8.3",
+		"vscode-test": "^1.3.0"
+	}
+}
