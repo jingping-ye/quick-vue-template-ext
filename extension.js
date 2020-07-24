@@ -1,6 +1,7 @@
 const vscode = require("vscode");
 const path = require("path");
 const fs = require("fs");
+const { Console } = require("console");
 const VueTemplate = require("./template/compTemplate").fullVueComp;
 const apiTempate = require("./template/apiTemplate").apiTemplate;
 const mockTemplate = require("./template/mockTemplate").mockTemplate;
@@ -25,6 +26,7 @@ const templateMap = {
 function generateFile(url, data) {
   //	去除自动生成路径前面的"/"
   const filePath = url.slice(1, url.length);
+  console.log("filePath===", filePath);
   return new Promise((resolve, reject) => {
     fs.writeFile(filePath, data, "utf8", (err) => {
       if (err) {
@@ -44,6 +46,7 @@ function generateFile(url, data) {
  */
 function generateTemplate(url, type) {
   const fileName = path.parse(url).name;
+  console.log("filename===", fileName);
   generateFile(url, templateMap[type](fileName));
 }
 
@@ -52,6 +55,7 @@ function generateTemplate(url, type) {
  */
 function activate(context) {
   let createComp = vscode.commands.registerCommand("quick-vue-template.createComp", function (url) {
+    console.log("url.path====", url.path);
     generateTemplate(url.path, 1);
   });
 

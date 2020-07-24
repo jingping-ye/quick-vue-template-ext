@@ -14,4 +14,8 @@
 
 建立`js`或者`vue`模板，然后右键。
 
-![vue-template](images/vue-template.gif)
+![demo](./demo.gif)
+
+## 注意
+
+使用之前必须保存文件
